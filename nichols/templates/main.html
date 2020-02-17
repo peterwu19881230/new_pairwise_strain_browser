@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<title>My Main page</title>
+		<link href="/static/my_CSS.css" rel="stylesheet"/> <!--https://help.pythonanywhere.com/pages/StaticFiles-->
+		<link href="/my_CSS.css" rel="stylesheet"/>
+		<link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='my_CSS.css') }}"> <!--https://stackoverflow.com/questions/22259847/application-not-picking-up-css-file-flask-python-->
+
+	</head>
+
+	<body>
+			this is plain text </br>
+			<b>this is bold</b> </br>
+			this is a hyperlink: <a href="https://microbialphenotypes.org">OMP</a> </br>
+
+			this is an image:
+			<img src="ecoliwiki.png">
+			<img src="/ecoliwiki.png">
+			<img src="mysite/ecoliwiki.png">
+			<img src="~/ecoliwiki.png">
+			<img src="peterwu19881230.pythonanywhere.com/pic/ecoliwiki.png">
+			<img src="/static/ecoliwiki.png">
+
+			this is another image:
+			<img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png">
+
+
+			<p>
+			This is a fresh paragraph. Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki Ecoliwiki
+			</p>
+
+			<h1> Header 1 <h1/>
+			<h2> Header 2 <h2/>
+			<h3> Header 3 <h3/>
+			<h4> Header 4 <h4/>
+
+
+			this is a table:</br>
+			<table border='1'>
+				<thead>
+					<th>1st col</th>
+					<th>2nd col</th>
+					<th>3rd col</th>
+				</thead>
+
+				<tr>
+					<td>dat 1</td>
+					<td>dat 2</td>
+					<td>dat 3</td>
+				</tr>
+
+			</table>
+
+			<h1>Nichols strain pairwise<>
+
+			<h2>Based on</h2>
+
+				<form method='get'>
+
+				<label for='strain'>strain</label>
+				<input id='strain' type='radio' name='' value=''>
+
+				<label for='condition'>condition</label>
+				<input id='condition' type='radio' name='' value=''>
+
+				</form>
+
+				<input type='submit' name='' value='SUBMIT'>
+
+			<h2>No. of results displayed</h2>
+
+			<select name='stars'>
+				<option>10</option>
+				<option>20</option>
+				<option>50</option>
+				<option>100</option>
+				<option>200</option>
+
+			</select>
+
+			<input type='submit' name='' value='SUBMIT'>
+
+
+				<h2>Javascript practice</h2>
+				  <script>
+
+					  //Uncomment the following for them to work:
+
+					  alert ('Welcome to Nichols data query page')
+					  //var gene = prompt('Enter your favorite gene')
+					  //alert('This is your favorite gene:' +gene)
+					  //console.log('you are a cool scientist')
+				  </script>
+
+				<h2>End of Javascript practice</h2>
+
+	</body>
+
+
+</html>

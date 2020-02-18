@@ -31,7 +31,7 @@ def get_mysql_data():
 
 
 @app.route('/new_nichols/')
-def get_mysql_data():
+def run_new_nichols():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM strain_similarity")
     result = cur.fetchall()

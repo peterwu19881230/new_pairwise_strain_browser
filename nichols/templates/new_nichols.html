@@ -2,27 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Nichols</title>
+    <title>Nichols 2011 Escherichia coli data query - OMPwiki</title>
 </head>
-<body>
+<body style='font-family="Gill Sans"'>
 
-<h1>Nichols strain pairwise<>
+
+<h1 style='font-family="Gill Sans"'>Nichols 2011 Escherichia coli data query</h1>
+
+<h2>Background</h2>
+This databrowser queries data from Nichols et al. 2011 Cell article <a href="https://www.ncbi.nlm.nih.gov/pubmed/21185072">(PUBMED)</a>.
+
+
+<h2>References</h2>
+
+
+<h2>Search</h2>
+Select a search type:
+
+
 
 			<h2>Based on</h2>
 
 				<form method='get'>
 
-				<label for='strain'>strain</label>
-				<input id='strain' type='radio' name='' value=''>
+				<label for='Growth data (Strain/Condition)'>Growth data (Strain/Condition)</label>
+				<input id='Growth data (Strain/Condition)' type='radio' name='' value=''>
 
-				<label for='condition'>condition</label>
-				<input id='condition' type='radio' name='' value=''>
+				<label for='Correlations among conditions'>Correlations among conditions</label>
+				<input id='Correlations among conditions' type='radio' name='' value=''>
+
+				<label for='Correlations among strains'>Correlations among strains</label>
+				<input id='Correlations among strains' type='radio' name='' value=''>
+
+				<label for='Conditions'>Conditions</label>
+				<input id='Conditions' type='radio' name='' value=''>
+
+				<label for='conditional input 1'>conditional input 1</label>
+				<input id='conditional input 1' type='text' name='' value=''>
+
+				<label for='conditional input 2'>conditional input 2</label>
+				<input id='conditional input 2' type='text' name='' value=''>
 
 				</form>
 
 				<input type='submit' name='' value='SUBMIT'>
 
-			<h2>No. of results displayed</h2>
+			<h2>Display search results</h2>
+
+			<table border=1>
+                {% for result_ in result %} <!-- this is Jinja -->
+                    <tr>
+                        <td>{{ result_[0] }}</td>
+                        <td>{{ result_[1] }}</td>
+                    </tr>
+                {%  endfor %}
+</table>
+
 
 </body>
 </html>

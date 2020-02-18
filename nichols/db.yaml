@@ -1,5 +1,5 @@
-mysql_host:'peterwu19881230.mysql.pythonanywhere-services.com'
-mysql_user:'peterwu19881230'
-mysql_password:'G45fd8YI'
-mysql_db:'peterwu19881230$strain_similarity'
+mysql_host: 'peterwu19881230.mysql.pythonanywhere-services.com'
+mysql_user: 'peterwu19881230'
+mysql_password: 'G45fd8YI'
+mysql_db: 'peterwu19881230$strain_similarity'
 

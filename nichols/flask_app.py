@@ -30,6 +30,14 @@ def get_mysql_data():
     return render_template('mysql.html',result=result)
 
 
+@app.route('/new_nichols/')
+def get_mysql_data():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM strain_similarity")
+    result = cur.fetchall()
+    return render_template('new_nichols.html',result=result)
+
+
 
 @app.route('/') #home page
 def is_home():

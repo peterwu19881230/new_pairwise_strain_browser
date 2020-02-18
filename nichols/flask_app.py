@@ -27,7 +27,7 @@ def get_mysql_data():
     result="remove this line afterward"
     cur = mysql.connection.cursor
     cur.execute("select * from strain_similarity")
-    #result = cur.fetchall()
+    result = cur.fetchall()
     return render_template('mysql.html',userDetails=result)
 
 

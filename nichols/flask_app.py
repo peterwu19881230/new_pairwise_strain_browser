@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 
 db=yaml.safe_load(open('db.yaml'))
+##in the db.yaml file there has to be a space between the key and the text (otherwise it won't be parsed properly)
 
 
 
@@ -22,12 +23,14 @@ app.config['MYSQL_DB']=db['mysql_db']
 
 mysql=MySQL(app)
 
+@app.rou@app.route('/mysql')
+def get_mysql_data():
+    cur=mysql.connection.cursor
+    cur.execute("select * from strain_similarity")
+    result=cur.fetchall()
+    return render_template('users.html',userDetails=result)
 
-'''
-#cur=mysql.connection.cursor
-#cur.execute("select * from my_tab")
-#cur.close
-'''
+
 
 
 @app.route('/') #home page

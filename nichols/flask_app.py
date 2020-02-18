@@ -23,12 +23,7 @@ app.config['MYSQL_DB']=db['mysql_db']
 
 mysql=MySQL(app)
 
-@app.route('/mysql/')
-def get_mysql_data():
-    cur=mysql.connection.cursor
-    cur.execute("select * from strain_similarity")
-    result=cur.fetchall()
-    return render_template('mysql.html',userDetails=result)
+
 
 
 

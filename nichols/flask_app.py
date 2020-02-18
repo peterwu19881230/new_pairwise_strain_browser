@@ -32,6 +32,10 @@ mysql=MySQL(app)
 '''
 
 
+@app.route('/') #home page
+def is_home():
+	return "This is home"
+
 @app.route('/<string:page_name>/',methods=['GET'])
 def render_static(page_name):
     return render_template('%s.html' % page_name)

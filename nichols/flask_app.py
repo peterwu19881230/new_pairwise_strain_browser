@@ -24,7 +24,12 @@ app.config['MYSQL_DB']=db['mysql_db']
 mysql=MySQL(app)
 
 
-
+@app.route('/mysql/')
+def get_mysql_data():
+    cur=mysql.connection.cursor
+    cur.execute("select * from strain_similarity")
+    result=cur.fetchall()
+    return render_template('mysql.html',userDetails=result)
 
 
 
@@ -32,10 +37,10 @@ mysql=MySQL(app)
 def is_home():
 	return "This is home"
 
-@app.route('/<string:page_name>/',methods=['GET'])
-def render_static(page_name):
-    return render_template('%s.html' % page_name)
 
+@app.route('/main/') #home page
+def get_main():
+	return render_template('main.html')
 
 
 @app.route('/hello/') #when in the url there's nothing after the home url, route to return "Hello World!"

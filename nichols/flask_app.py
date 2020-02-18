@@ -20,16 +20,15 @@ app.config['MYSQL_HOST']=db['mysql_host']
 app.config['MYSQL_USER']=db['mysql_user']
 app.config['MYSQL_PASSWORD']=db['mysql_password']
 app.config['MYSQL_DB']=db['mysql_db']
-
-mysql=MySQL(app)
-
+mysql= MySQL(app)
 
 @app.route('/mysql/')
 def get_mysql_data():
-    cur=mysql.connection.cursor
+    cur = mysql.connection.cursor
     cur.execute("select * from strain_similarity")
-    result=cur.fetchall()
-    return render_template('mysql.html',userDetails=result)
+    result = cur.fetchall()
+    return 'a test'
+    #return render_template('mysql.html',userDetails=result)
 
 
 
@@ -47,7 +46,12 @@ def get_main():
 def hello():
 	return "Hello World!"
 
-
+#read html by getting names from templates/
+'''
+@app.route('/<string:page_name>/',methods=['GET'])
+def render_static(page_name):
+    return render_template('%s.html' % page_name)
+'''
 
 #I can use this to get current directory: /home/peterwu19881230/mysite
 @app.route('/current_dir/')

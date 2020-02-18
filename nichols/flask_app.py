@@ -26,7 +26,7 @@ mysql= MySQL(app)
 def get_mysql_data():
     result=0
     cur = mysql.connection.cursor
-    #cur.execute("select * from strain_similarity")
+    resultVaue=cur.execute("SELECT * FROM strain_similarity")
     #result = cur.fetchall()
     return render_template('mysql.html',userDetails=result)
 

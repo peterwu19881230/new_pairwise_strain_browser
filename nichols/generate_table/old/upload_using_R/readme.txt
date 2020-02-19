@@ -1,0 +1,1 @@
+These 2 scripts work. The reason I don't use them is because RMySQL will miss some rows (reason unclear) if the uploaded table is too large

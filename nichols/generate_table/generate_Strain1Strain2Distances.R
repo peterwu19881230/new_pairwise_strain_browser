@@ -64,5 +64,18 @@ names(strain1_strain2_pcc_spearman_manyMI)[1:2]=c("Strain 1","Strain 2")
 
 #save(strain1_strain2_pcc_spearman_manyMI,file="strain1_strain2_pcc_spearman_manyMI.RData")
 
-write.table(strain1_strain2_pcc_spearman_manyMI,file="Data/strain1_strain2_pcc_spearman_manyMI.txt",row.names=F,sep="\t")
+chunk2 = function(x,n) split(x, cut(seq_along(x), n, labels = FALSE)) #https://stackoverflow.com/questions/3318333/split-a-vector-into-chunks-in-r
+
+total_length=dim(strain1_strain2_pcc_spearman_manyMI)[1]
+n=5
+partitions=chunk2(seq(total_length),n)
+
+i=1
+for(parition in partitions){
+  dat=strain1_strain2_pcc_spearman_manyMI[parition,]
+  file_name=paste0("Data/strain1_strain2_pcc_spearman_manyMI_",i,".txt")
+  write.table(dat,file=file_name,row.names=F,sep="\t") 
+  i=i+1
+}
+
 

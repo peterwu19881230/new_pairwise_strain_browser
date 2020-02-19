@@ -33,7 +33,7 @@ def get_mysql_data():
 @app.route('/new_nichols/')
 def run_new_nichols():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM strain_similarity")
+    cur.execute("SELECT * FROM strain_similarity LIMIT 10")
     result = cur.fetchall()
     return render_template('new_nichols.html',result=result)
 

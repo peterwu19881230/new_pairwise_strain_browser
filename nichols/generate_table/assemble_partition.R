@@ -10,5 +10,5 @@ for(i in file_index){
   }
 }
 
-file_name="Data/strain1_strain2_pcc_spearman_manyMI.txt"
+file_name="strain1_strain2_pcc_spearman_manyMI.txt"
 write.table(dat,file=file_name,row.names=F,sep="\t") 

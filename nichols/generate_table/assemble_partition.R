@@ -6,7 +6,7 @@ for(i in file_index){
     dat=read.table(paste0("strain1_strain2_pcc_spearman_manyMI_",i,".txt"),header = T)    
   }else{
     dat=rbind(dat,
-              read.table(paste0("Data/strain1_strain2_pcc_spearman_manyMI_",i,".txt"),header = T))
+              read.table(paste0("strain1_strain2_pcc_spearman_manyMI_",i,".txt"),header = T))
   }
 }
 

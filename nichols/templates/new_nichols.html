@@ -5,6 +5,23 @@
     <title>Nichols 2011 Escherichia coli data query - OMPwiki</title>
     <link href="/static/my_CSS.css" rel="stylesheet"/>
 </head>
+
+<script>
+function showInput(){
+    var input1=document.getElementById("conditional input 1").value; <!--#ref:https://www.udemy.com/course/python-and-django-full-stack-web-developer-bootcamp/learn/lecture/6598240#overview-->
+    var input2=document.getElementById("conditional input 2").value;
+    var txtOutput1 = document.getElementById("txtOutput1")
+    var txtOutput2 = document.getElementById("txtOutput2")
+    var input1_value = input1.value;
+    var input2_value = input2.value;
+
+    txtOutput1.value=input1_value
+    txtOutput2.value=input2_value
+
+}
+</script>
+
+
 <body>
 
 
@@ -54,24 +71,30 @@ Select a search type:
 
 
 
-				<label for='conditional input 1'>conditional input 1</label>
-				<input id='conditional input 1' type='text' name='' value=''></br>
-
-				<label for='conditional input 2'>conditional input 2</label>
-				<input id='conditional input 2' type='text' name='' value=''>
-
-
-
-<form action="http://peterwu19881230.pythonanywhere.com/hello/" method="get">
-				<input type='submit' name='' value='SUBMIT'>
+<form method="POST" action="">
+  conditional input 1: <input type='text' name='input1' value=''></br>
+  conditional input 2: <input type='text' name='input2' value=''></br>
+<input type="submit">
 </form>
 
 
-			<h2>Display search results</h2>
 
-			<table border=1>
+
+<h2>Search results</h2>
+
+<table border=1>
+
+    <td><b>strain 1</b></td> <!--simply wrap the <b> tag outside of the whole table didn't work-->
+    <td><b>strain 2</b></td>
+    <td><b>pcc</b></td>
+    <td><b>spearman</b></td>
+    <td><b>mi</b></td>
+    <td><b>ternary mi</b></td>
+    <td><b>ternary mi - condition collapsed</b></td>
+
                 {% for result_ in result %} <!-- this is Jinja -->
                     <tr>
+
                         <td>{{ result_[0] }}</td>
                         <td>{{ result_[1] }}</td>
                         <td>{{ result_[2] }}</td>

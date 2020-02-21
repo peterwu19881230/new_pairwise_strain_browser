@@ -22,21 +22,31 @@ app.config['MYSQL_PASSWORD']=db['mysql_password']
 app.config['MYSQL_DB']=db['mysql_db']
 mysql= MySQL(app)
 
-@app.route('/mysql/')
-def get_mysql_data():
+
+
+#read html by getting names from templates/
+@app.route('/<string:page_name>/',methods=['GET','POST']) #POST allow user inputs
+def render_static(page_name):
+
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM strain_similarity")
+    cur.execute("SELECT * FROM strain_similarity LIMIT 100")
     result = cur.fetchall()
-    return render_template('mysql.html',result=result)
+    cur.close()
 
+    if request.method=='POST':
+        #fetch the form data
+        query=request.form
+        strain1=query['input1']
+        strain2=query['input2']
+        cur = mysql.connection.cursor()
+        #cur.execute("SELECT * FROM strain_similarity WHERE strain1 LIKE 'ECK0002' LIMIT 100")
+        cur.execute("SELECT * FROM strain_similarity WHERE strain1 = '%s' AND strain2 = '%s' LIMIT 100",(strain1,strain2))
+        ##have to make this work properly
 
-@app.route('/new_nichols/')
-def run_new_nichols():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM strain_similarity LIMIT 10")
-    result = cur.fetchall()
-    return render_template('new_nichols.html',result=result)
+        result = cur.fetchall()
+        cur.close()
 
+    return render_template('%s.html' % page_name,result=result) #note: multiple variables like "result" can be passed
 
 
 @app.route('/') #home page
@@ -44,21 +54,13 @@ def is_home():
 	return "This is home"
 
 
-@app.route('/main/') #home page
-def get_main():
-	return render_template('main.html')
 
 
 @app.route('/hello/') #when in the url there's nothing after the home url, route to return "Hello World!"
 def hello():
 	return "Hello World!"
 
-#read html by getting names from templates/
-'''
-@app.route('/<string:page_name>/',methods=['GET'])
-def render_static(page_name):
-    return render_template('%s.html' % page_name)
-'''
+
 
 #I can use this to get current directory: /home/peterwu19881230/mysite
 @app.route('/current_dir/')

@@ -36,11 +36,10 @@ def render_static(page_name):
     if request.method=='POST':
         #fetch the form data
         query=request.form
-        strain1=query['input1']
-        strain2=query['input2']
+        strain1='%'+str(query['input1'])+'%'
+        strain2='%'+str(query['input2'])+'%'
         cur = mysql.connection.cursor()
-        #cur.execute("SELECT * FROM strain_similarity WHERE strain1 LIKE 'ECK0002' LIMIT 100")
-        cur.execute("SELECT * FROM strain_similarity WHERE strain1 = '%s' AND strain2 = '%s' LIMIT 100",(strain1,strain2))
+        cur.execute("SELECT * FROM strain_similarity WHERE strain1 LIKE %s AND strain2 LIKE %s LIMIT 100",(strain1,strain2))
         ##have to make this work properly
 
         result = cur.fetchall()

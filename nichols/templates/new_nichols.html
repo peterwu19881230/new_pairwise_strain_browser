@@ -6,21 +6,6 @@
     <link href="/static/my_CSS.css" rel="stylesheet"/>
 </head>
 
-<script>
-function showInput(){
-    var input1=document.getElementById("conditional input 1").value; <!--#ref:https://www.udemy.com/course/python-and-django-full-stack-web-developer-bootcamp/learn/lecture/6598240#overview-->
-    var input2=document.getElementById("conditional input 2").value;
-    var txtOutput1 = document.getElementById("txtOutput1")
-    var txtOutput2 = document.getElementById("txtOutput2")
-    var input1_value = input1.value;
-    var input2_value = input2.value;
-
-    txtOutput1.value=input1_value
-    txtOutput2.value=input2_value
-
-}
-</script>
-
 
 <body>
 
@@ -45,38 +30,48 @@ Select a search type:
 
 
 
-<form action="http://peterwu19881230.pythonanywhere.com/hello/" method="get">
-				<input type='submit' name='' value='Growth data (Strain/Condition)'>
-</form></br>
-
-
-
-<form action="http://peterwu19881230.pythonanywhere.com/hello/" method="get">
-				<input type='submit' name='' value='Correlations among conditions'>
-</form></br>
-
-
-
-<form action="http://peterwu19881230.pythonanywhere.com/hello/" method="get">
-				<input type='submit' name='' value='Correlations among strains'>
-</form></br>
-
-
-
-<form action="http://peterwu19881230.pythonanywhere.com/hello/" method="get">
-				<input type='submit' name='' value='Conditions'>
-</form></br>
+<form action=""> <!--action="http://peterwu19881230.pythonanywhere.com/hello/" method="get"-->
+				<input type='radio' name='choices'>Growth data (Strain/Condition)</br>
+				<input type='radio' name='choices'>Correlations among conditions</br>
+				<input type='radio' name='choices'>Correlations among strains</br>
+				<input type='radio' name='choices'>Conditions</br>
+</form>
+</br>
 
 
 
 
-
-<form method="POST" action="">
-  conditional input 1: <input type='text' name='input1' value=''></br>
-  conditional input 2: <input type='text' name='input2' value=''></br>
+<form method="POST" action=""> <!-- need to work on how to display large table as the search result-->
+  strain1: <input type='text' name='input1' value=''> <!--Need to display the forms based on the radios selected above (https://stackoverflow.com/questions/3961422/conditional-display-of-html-element-forms)-->
+  strain2: <input type='text' name='input2' value=''>
+  </br>
+  </br>
 <input type="submit">
 </form>
 
+<form method="POST" action="">
+  strain: <input type='text' name='input3' value=''>
+  condition: <input type='text' name='input4' value=''>
+  </br>
+  </br>
+<input type="submit">
+</form>
+
+<form method="POST" action="">
+  condition1: <input type='text' name='input5' value=''>
+  condition2: <input type='text' name='input6' value=''>
+  </br>
+  </br>
+<input type="submit">
+</form>
+
+<form method="POST" action="">
+  condition: <input type='text' name='input7' value=''>
+  keywords: <input type='text' name='input8' value=''>
+  </br>
+  </br>
+<input type="submit">
+</form>
 
 
 
